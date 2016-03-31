@@ -1,0 +1,10 @@
+<h1>Links#index</h1>
+<% @links.each do |x|%>
+<hr><br>
+Likes: <%=x.likes.where(feels: 1).count%>
+Dislikes: <%=x.likes.where(feels: 0).count%>
+Temperature: <%=(x.likes.where(feels: 1).count) - (x.likes.where(feels: 0).count)%>
+<a href = "<%=x.link%>">
+<%=x.title.capitalize%></a>
+<br>
+<%end%>
