@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   def index
     page_set
     sorted = Link.sort_links
-    @links = sorted.offset(@offset).limit(12)
+    @links = sorted.offset(@offset).limit(20)
   end
 
   def create
@@ -37,7 +37,7 @@ class LinksController < ApplicationController
       @page = params[:page].to_i
     end
     if @page > 0
-      @offset = @page * 12
+      @offset = @page * 20
     else
       @offset = 0
     end
