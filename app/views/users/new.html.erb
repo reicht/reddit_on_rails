@@ -1,0 +1,26 @@
+<h1>Users#new</h1>
+
+
+<div class='row'>
+  <div class='twelve columns'>
+    <%= form_for(@user) do |f| %>
+      <div class='row'>
+        <div class='three columns'>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'input-field title', placeholder: "Master Namington" %>
+        </div>
+        <div class='three columns'>
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'input-field link', placeholder: "YourAddress@Email.Com" %>
+        </div>
+        <div class='three columns'>
+          <%= f.label :profile_pic %>
+          <%= f.number_field(:profile_pic, in: 1..15) %>
+        </div>
+      </div>
+      <div class='row'>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,2 +1,7 @@
 <h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+<h2><%=@link.title%></h2>
+<div>
+  Likes: <%=@link.likes.where(feels: 1).count%>
+  Dislikes: <%=@link.likes.where(feels: 0).count%>
+  Temperature: <%=(@link.likes.where(feels: 1).count) - (@link.likes.where(feels: 0).count)%>
+</div>

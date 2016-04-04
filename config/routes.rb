@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'links/index'
 
-  get 'links/create'
+  # get 'likes/create'
+  #
+  # get 'likes/new'
+  #
+  # get 'likes/destroy'
 
-  get 'links/new'
-
-  get 'links/destroy'
-
-  get 'links/show'
+  resources :likes
+  resources :users
+  resources :links
 
   root 'links#index'
 

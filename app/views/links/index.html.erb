@@ -1,10 +1,29 @@
 <h1>Links#index</h1>
 <% @links.each do |x|%>
-<hr><br>
-Likes: <%=x.likes.where(feels: 1).count%>
-Dislikes: <%=x.likes.where(feels: 0).count%>
-Temperature: <%=(x.likes.where(feels: 1).count) - (x.likes.where(feels: 0).count)%>
-<a href = "<%=x.link%>">
-<%=x.title.capitalize%></a>
+<hr>
+<% temp = get_temp(x) %>
+👍: <%=x.likes.where(feels: 1).count%>
+👎: <%=x.likes.where(feels: 0).count%>
+<% if temp > 1 %>
+  🔥: <%=temp%>
+<% else %>
+  💩: <%=temp%>
+<% end %>
+<a href = "http://localhost:3000/links/<%=x.id%>">
+<%=x.title.capitalize%></a><br>
+<div class = "feels_bar">
+<a><%= button_to 'Love', likes_path(link_id: x.id, feels: 1), method: :post, form_class: "feelings" %></a>
+<a><%= button_to 'Hate', likes_path(link_id: x.id, feels: 0), method: :post, form_class: "feelings" %></a>
+</div>
 <br>
 <%end%>
+<div class = "page_bar">
+  <a href="http://localhost:3000/links?page=<%=@page - 1%>">
+    <div>
+    <p>Previous</p>
+  </div></a>
+  <a href="http://localhost:3000/links?page=<%=@page + 1%>">
+    <div>
+    <p>Next</p>
+  </div></a>
+</div>

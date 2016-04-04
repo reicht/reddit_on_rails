@@ -1,2 +1,26 @@
 <h1>Links#new</h1>
-<p>Find me in app/views/links/new.html.erb</p>
+
+
+<div class='row'>
+  <div class='twelve columns'>
+    <%= form_for(@link) do |f| %>
+      <div class='row'>
+        <div class='three columns'>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'input-field title', placeholder: "Insert Link Title" %>
+        </div>
+        <div class='three columns'>
+          <%= f.label :link %>
+          <%= f.text_field :link, class: 'input-field link', placeholder: "Insert Link URL HERE" %>
+        </div>
+        <div class='three columns'>
+          <%= f.label :user_id %>
+          <%= f.number_field(:user_id, in: 1..30) %>
+        </div>
+      </div>
+      <div class='row'>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

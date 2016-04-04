@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+      <a href="http://localhost:3000/">
+        <div class="top-bar-home">
+        <p>Home</p>
+      </div></a>
+      <a href="http://localhost:3000/#">
+        <div class="top-bar-users">
+        <p>Users</p>
+      </div></a>
+      <a href="http://localhost:3000/links">
+        <div class="top-bar-links">
+        <p>Links</p>
+      </div></a>
+      <a href="http://localhost:3000/links/new">
+        <div class="top-bar-new-link">
+        <p>New Link</p>
+      </div></a>
+      <div class= "top-bar-search">
+        <%= form_tag("/search", method: "get") do %>
+          <!-- <%= label_tag(:q, "Search for:") %> -->
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+        <% end %>
+      </div>
+    </header>
 
+<%= flash[:alert] %>
+<%= flash[:notice] %>
+
+<div class= "container">
 <%= yield %>
-
+</div>
 </body>
 </html>
