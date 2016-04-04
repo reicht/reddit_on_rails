@@ -12,8 +12,8 @@
 <a href = "http://localhost:3000/links/<%=x.id%>">
 <%=x.title.capitalize%></a><br>
 <div class = "feels_bar">
-<a><%= button_to 'Love', likes_path(link_id: x.id, feels: 1), method: :post, form_class: "feelings" %></a>
-<a><%= button_to 'Hate', likes_path(link_id: x.id, feels: 0), method: :post, form_class: "feelings" %></a>
+<%= button_to 'Love', likes_path(link_id: x.id, feels: 1), method: :post, form_class: "feelings" %>
+<%= button_to 'Hate', likes_path(link_id: x.id, feels: 0), method: :post, form_class: "feelings" %>
 </div>
 <br>
 <%end%>
